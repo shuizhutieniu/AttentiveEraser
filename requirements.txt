@@ -1,7 +1,5 @@
 torch
 numpy
-jax==0.4.22
-jaxlib==0.4.22
 diffusers==0.16.1
 torchvision==0.12.0
 einops==0.3.0

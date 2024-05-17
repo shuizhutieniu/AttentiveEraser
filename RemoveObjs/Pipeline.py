@@ -3,7 +3,7 @@ import numpy as np
 from tqdm import tqdm
 from diffusers import StableDiffusionPipeline
 import torch.nn.functional as F
-
+from .tools import save_as_pkl_simple
 
 class RemoveObjsPipeline(StableDiffusionPipeline):
     def step(
@@ -109,6 +109,8 @@ class RemoveObjsPipeline(StableDiffusionPipeline):
 
         self.scheduler.set_timesteps(num_inference_steps)
 
+        latents_list = []
+
         for _, t in enumerate(tqdm(self.scheduler.timesteps, desc="...")):
             if guidance_scale > 1.0:
                 model_inputs = torch.cat([latents] * 2)
@@ -123,7 +125,10 @@ class RemoveObjsPipeline(StableDiffusionPipeline):
                 noise_pred = noise_pred_uncon + guidance_scale * (
                     noise_pred_con - noise_pred_uncon
                 )
+            latents_list.append(latents)
             latents, pred_x0 = self.step(noise_pred, t, latents)
+            
 
+        save_as_pkl_simple(latents_list,"latent_list")
         image = self.latent2image(latents, return_type="pt")
         return image

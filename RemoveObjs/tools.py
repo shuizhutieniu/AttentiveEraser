@@ -140,6 +140,56 @@ def GlobalSeed(seed: Optional[int] = None, workers: bool = False):
     os.environ["PL_SEED_WORKERS"] = f"{int(workers)}"
 
 
+# def plot_tensors_heatmaps_advanced(
+#     *tensors,
+#     N=7,
+#     titles: list = None,
+#     isColorbar: bool = True,
+#     colormap: str = "hot",
+#     WordIndex: int = 5,
+# ):
+#     """
+#     绘制一系列张量的热图，每个张量可以是二维正方形或具有形状 [x, x, 77] 的三维张量。
+#     对于三维张量，函数会根据 WordIndex 参数选择一个特定的切片进行绘制。
+
+#     arguments:
+#         *tensors: 一个或多个二维或三维张量，必须确保三维张量的最后一个维度大小为77。
+#         N (int, 可选): 每行显示的热图数量，默认为7。
+#         titles (list, 可选): 每个热图的标题列表，如果未提供，默认为每个张量的维度。
+#         isColorbar (bool, 可选): 是否在每个热图旁边显示颜色条，默认为True。
+#         colormap (str, 可选): 热图使用的颜色映射，默认为'hot'。
+#         WordIndex (int, 可选): 如果张量是三维的，选择哪一个切片进行绘制，默认为第五个切片。
+
+#     no returns
+#     """
+#     if titles is None:
+#         titles = [f"{t.size(0)}x{t.size(1)}" for t in tensors]
+
+#     max_size = max(max(t.size(0), t.size(1)) for t in tensors)
+#     num_rows = (len(tensors) + N - 1) // N
+#     num_cols = min(len(tensors), N)
+#     figsize = (20, 3 * num_rows)
+#     fig, axes = plt.subplots(num_rows, num_cols, figsize=figsize, squeeze=False)
+
+#     for ax, tensor, title in zip(axes.flatten(), tensors, titles):
+#         tensor = tensor[:, :, WordIndex] if len(list(tensor.shape)) == 3 else tensor
+#         im = ax.imshow(tensor.numpy(), cmap=colormap, extent=(0, max_size, max_size, 0))
+#         ax.set_xlim([0, max_size])
+#         ax.set_ylim([max_size, 0])
+#         ax.axis("off")
+#         if isColorbar:
+#             fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+#         ax.set_title(str(title))
+
+#     extra_axes = len(axes.flatten()) - len(tensors)
+#     if extra_axes > 0:
+#         for ax in axes.flatten()[-extra_axes:]:
+#             ax.axis("off")
+
+#     plt.subplots_adjust(hspace=0.2)
+#     plt.tight_layout()
+#     plt.show()
+
 def plot_tensors_heatmaps_advanced(
     *tensors,
     N=7,
@@ -147,18 +197,22 @@ def plot_tensors_heatmaps_advanced(
     isColorbar: bool = True,
     colormap: str = "hot",
     WordIndex: int = 5,
+    saveToFile: bool = False,
+    filePath: str = 'heatmap'
 ):
     """
     绘制一系列张量的热图，每个张量可以是二维正方形或具有形状 [x, x, 77] 的三维张量。
     对于三维张量，函数会根据 WordIndex 参数选择一个特定的切片进行绘制。
 
     arguments:
-        *tensors: 一个或多个二维或三维张量，必须确保三维张量的最后一个维度大小为77。
-        N (int, 可选): 每行显示的热图数量，默认为7。
-        titles (list, 可选): 每个热图的标题列表，如果未提供，默认为每个张量的维度。
-        isColorbar (bool, 可选): 是否在每个热图旁边显示颜色条，默认为True。
-        colormap (str, 可选): 热图使用的颜色映射，默认为'hot'。
-        WordIndex (int, 可选): 如果张量是三维的，选择哪一个切片进行绘制，默认为第五个切片。
+        *tensors: 一个或多个二维或三维张量。
+        N (int, 可选): 每行显示的热图数量。
+        titles (list, 可选): 每个热图的标题。
+        isColorbar (bool, 可选): 是否显示颜色条。
+        colormap (str, 可选): 使用的颜色映射。
+        WordIndex (int, 可选): 选择三维张量的切片。
+        saveToFile (bool, 可选): 是否将图片保存到文件。
+        filePath (str, 可选): 图片保存的路径和文件名。
 
     no returns
     """
@@ -172,14 +226,14 @@ def plot_tensors_heatmaps_advanced(
     fig, axes = plt.subplots(num_rows, num_cols, figsize=figsize, squeeze=False)
 
     for ax, tensor, title in zip(axes.flatten(), tensors, titles):
-        tensor = tensor[:, :, WordIndex] if len(list(tensor.shape)) == 3 else tensor
+        tensor = tensor[:, :, WordIndex] if tensor.dim() == 3 else tensor
         im = ax.imshow(tensor.numpy(), cmap=colormap, extent=(0, max_size, max_size, 0))
         ax.set_xlim([0, max_size])
         ax.set_ylim([max_size, 0])
         ax.axis("off")
         if isColorbar:
             fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-        ax.set_title(title)
+        ax.set_title(str(title))
 
     extra_axes = len(axes.flatten()) - len(tensors)
     if extra_axes > 0:
@@ -188,7 +242,13 @@ def plot_tensors_heatmaps_advanced(
 
     plt.subplots_adjust(hspace=0.2)
     plt.tight_layout()
-    plt.show()
+    
+    if saveToFile:
+        plt.savefig(filePath + ".png")
+        plt.close(fig)
+    else:
+        plt.show()
+
 
 
 def plot_tensors_heatmaps(
@@ -340,3 +400,26 @@ def get_replacement_mapper(prompts, tokenizer, max_len=77):
         mapper = get_replacement_mapper_(x_seq, prompts[i], tokenizer, max_len)
         mappers.append(mapper)
     return torch.stack(mappers)
+
+
+def aggregate_attention(
+    ctrler,
+    res: int,
+    from_where,
+    is_cross: bool,
+    select: int,
+    prompts
+):
+    out = []
+    attention_maps = ctrler.get_average_attention()
+    num_pixels = res**2
+    for location in from_where:
+        for item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
+            if item.shape[1] == num_pixels:
+                cross_maps = item.reshape(len(prompts), -1, res, res, item.shape[-1])[
+                    select
+                ]
+                out.append(cross_maps)
+    out = torch.cat(out, dim=0)
+    out = out.sum(0) / out.shape[0]
+    return out.cpu()
