@@ -1,6 +1,9 @@
 # AttentiveEraser
 *Invisible Edits: Using Attention Manipulation to Remove Objects in Diffusion-Based Image Synthesis*
 
+## Overview
+
+
 ## Requirements
 
 The codebase is tested under **NVIDIA Tesla T4** with the python library **pytorch-2.2.1+cu121** and **diffusers-0.16.1.** We strongly recommend using a specific version of Diffusers as it is continuously evolving. For PyTorch, you could probably use other version under 2.x.x.
@@ -19,7 +22,6 @@ python ./run.py \
        -i     5                          # The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt.
        -t     1 20                       # The range of diffusion model layers to apply the modifications, e.g., 1 20 for layers 1 to 20.
        -w     1,2,3,4,5                  # number of Attention Editing steps
-       -ds    50                         # List of word indices in the attention map to be modified, default is the target word index.
 ```
 
 Or you can run the following command to understand the available command-line options for the script:
@@ -27,3 +29,9 @@ Or you can run the following command to understand the available command-line op
 ```bash
 python run.py -h
 ```
+
+and sample with
+```bash
+python run.py -p "A squirrel and a cherry" -s 2436247 -i 5 -t 1 20
+```
+
