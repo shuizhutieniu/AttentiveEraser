@@ -14,16 +14,16 @@ pip install -r requirements.txt
 
 ```raw
 python ./run.py \
-       -p     "A squirrel and a cherry"  # The text prompt describing the image
-       -s     2436247                    # The seed for reproducibility of results
-       -i     5                          # The position index of the target word to remove from the image
-       -s     1.0              # noise level
-       -ns    5                # number of Attention Editing steps
-       -ds    50               # number of diffusion steps (default: 50)
-       -m                      # image annotation (optional, useful for debugging)
-       -p   "A tiger sitting a on car"         # prompt
-       -n   "Your note"                        # your note
-       -dp  "/path/to/diffusion/model/folder"  # default: assets/models/clip-vit-large-patch14
-       -cp  "/path/to/clip/model/folder"       # default: assets/models/stable-diffusion-v1-4
-       -f   "/your/output/folder"              # experiment output folder
+       -p     "A squirrel and a cherry"  # The text prompt describing the image, e.g., "A squirrel and a cherry"
+       -s     2436247                    # The seed number for reproducibility of results, e.g., 42.
+       -i     5                          # The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt.
+       -t     1 20                       # The range of diffusion model layers to apply the modifications, e.g., 1 20 for layers 1 to 20.
+       -w     1,2,3,4,5                  # number of Attention Editing steps
+       -ds    50                         # List of word indices in the attention map to be modified, default is the target word index.
+```
+
+Or you can run the following command to understand the available command-line options for the script:
+
+```bash
+python run.py -h
 ```
