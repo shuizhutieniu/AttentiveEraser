@@ -118,11 +118,52 @@ def main():
         help="List of word indices in the attention map to be modified, default is the target word index.",
     )
 
+    parser.add_argument(
+        "-r",
+        "--replace_self_attention",
+        action="store_true",
+        help="Flag to replace the self-attention maps, default is False.",
+    )
+    parser.add_argument(
+        "-sa",
+        "--self_attention_steps",
+        type=int,
+        nargs="+",
+        default=[1, 50],
+        help="The layers where self-attention maps are replaced, e.g., 1 20. Effective only if -r is specified.",
+    )
+    parser.add_argument(
+        "-em",
+        "--replace_embedding_indices",
+        type=int,
+        nargs="*",
+        default=[],
+        help='Indices of word embeddings to replace, default is empty, e.g., [5] to replace "cherry".',
+    )
+
     args = parser.parse_args()
-    run(args.prompt, args.seed, args.index, args.step, args.word)
+    run(
+        args.prompt,
+        args.seed,
+        args.index,
+        args.step,
+        args.word,
+        args.replace_self_attention,
+        args.self_attention_steps,
+        args.replace_embedding_indices,
+    )
 
 
-def run(prompt, seed, index, step, word):
+def run(
+    prompt,
+    seed,
+    index,
+    step,
+    word,
+    replace_self_attention,
+    self_attention_steps,
+    replace_embedding_indices,
+):
     GlobalSeed(seed)
     initial_latent = torch.randn([1, 4, 64, 64], device=device)
     prompts = [prompt, prompt]
@@ -131,12 +172,12 @@ def run(prompt, seed, index, step, word):
     results, _ = QuickStart(
         prompts=prompts,
         initial_latent=initial_latent,
-        isSelfAttnReplace=False,
-        SelfAttnReplaceSteps=[1, 50],
+        isSelfAttnReplace=replace_self_attention,
+        SelfAttnReplaceSteps=self_attention_steps,
         CrossAttnEditIndex=index,
         CrossAttnEditWord=word,
         CrossAttnEditSteps=step,
-        EmbedCtrlIndex=[],
+        EmbedCtrlIndex=replace_embedding_indices,
         SaveSteps=[],
         isResetMask=False,
     )
