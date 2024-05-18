@@ -3,17 +3,7 @@
 
 ## Overview
 
-<table style="border-collapse: collapse;width: 100%;">
 
-  <tr>
-      <th colspan="2" style="text-align: center; vertical-align: middle; padding: 2px; border: 1px solid white;">和宝宝<del>吃如论</del>烤冷面</th>
-  </tr>
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2308052246_IMG_2024.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2308052246_IMG_2025.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-</table>
 
 ## Requirements
 
