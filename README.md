@@ -21,7 +21,7 @@ python ./run.py \
        -s     2436247                    # The seed number for reproducibility of results, e.g., 42.
        -i     5                          # The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt.
        -t     1 20                       # The range of diffusion model layers to apply the modifications, e.g., 1 20 for layers 1 to 20.
-       -w     1,2,3,4,5                  # number of Attention Editing steps
+       -w     1,2,3,4,5                  # List of word indices in the attention map to be modified, default is the target word index.
        -r     False                      # "Flag to replace the self-attention maps, default is False."
        -sa    [1, 50]                    # The layers where self-attention maps are replaced, e.g., 1 20. Effective only if -r is specified.
        -em    []                         # Indices of word embeddings to replace, default is empty, e.g., [5] to replace "cherry".
