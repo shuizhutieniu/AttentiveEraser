@@ -38,15 +38,44 @@
 看看p2p 照着写
 
 
-
+```html
 <table style="border-collapse: collapse;width: 100%;">
 
   <tr>
-      <th colspan="2" style="text-align: center; vertical-align: middle; padding: 2px; border: 1px solid white;">和宝宝<del>吃如论</del>烤冷面</th>
+      <th colspan="2" style="text-align: center; vertical-align: middle; padding: 2px; border: 1px solid white;">Sample text</th>
   </tr>
 
   <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-30.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-30.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://example.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://example.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+</table>
+```
+
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="width: 50%; padding: 0;">
+      <table style="border-collapse: collapse; width: 100%;">
+        <tr>
+          <th colspan="2" style="text-align: center; vertical-align: middle; padding: 2px; border: 1px solid white;">Sample text</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-50.jpg" alt="name" style="width: 100%; height: auto;"></td>
+          <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-50.jpg" alt="name" style="width: 100%; height: auto;"></td>
+        </tr>
+      </table>
+    </td>
+    <td style="width: 50%; padding: 0;">
+      <table style="border-collapse: collapse; width: 100%;">
+        <tr>
+          <th colspan="2" style="text-align: center; vertical-align: middle; padding: 2px; border: 1px solid white;">Sample text</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-50.jpg" alt="name" style="width: 100%; height: auto;"></td>
+          <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-50.jpg" alt="name" style="width: 100%; height: auto;"></td>
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
