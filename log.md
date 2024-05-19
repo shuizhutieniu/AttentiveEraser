@@ -65,8 +65,8 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and a ball</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A elephant and a lemon</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A elephant and <del>a lemon<del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">a photo of a elephant and a lemon</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">a photo of a elephant and <del>a lemon<del></td>
   </tr>
 
   <tr>
