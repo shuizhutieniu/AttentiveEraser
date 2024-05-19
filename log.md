@@ -65,22 +65,22 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with a ball</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">An elephant and a lemon</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">An elephant and <del>a lemon<del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Elephant and Lemon Slice</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Elephant and <del>Lemon Slice</del></td>
   </tr>
 
   <tr>
     <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
     <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436246A%20cat%20and%20a%20ball.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436246A%20cat%20and%20a%20ball_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
   </tr>
 
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and a cherry</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and <del>a cherry</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">前2层置零</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">前4层置零</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on Green</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and <del>Cherries</del> on Green</td>
   </tr>
 
 </table>
