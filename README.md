@@ -16,8 +16,8 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with a ball</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Elephant and Lemon Slice</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Elephant and <del>Lemon Slice</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and Lemon Slice</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and <del>Lemon Slice</del></td>
   </tr>
 
   <tr>
