@@ -155,5 +155,21 @@ results, ctrler = QuickStart(
 
 
 ## Attention Edits
+Inspired by [p2p](https://github.com/google/prompt-to-prompt), we perform our main logic by implementing `AttentiveEraserAttentionControlEdit` inherits from the abstract class `AttentionControl`
+
+The `forward` method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words."
+
+
+
+
+<table style="border-collapse: collapse;width: 100%;">
+
+  <tr>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+
+</table>
+
 
 ![alt text](https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/output.png)
