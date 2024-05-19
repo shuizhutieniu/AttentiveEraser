@@ -46,7 +46,7 @@
   </tr>
 
   <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2308052246_IMG_2024.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2308052246_IMG_2025.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-30.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/NoReplaceAttnEdit_1-30.jpg" alt="name" style="width: 100%; height: auto;"></td>
   </tr>
 </table>
