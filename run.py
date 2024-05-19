@@ -2,7 +2,6 @@ import os
 import torch
 from diffusers import DDIMScheduler
 from torchvision.utils import save_image
-import importlib
 import warnings
 import argparse
 
@@ -12,9 +11,11 @@ from AttentiveEraser.tools import (
     GlobalSeed,
     display_tensors_as_images,
 )
+
 import AttentiveEraser.Pipeline as Pipeline
 import AttentiveEraser.AttnCtrl as AttnCtrl
 import AttentiveEraser.RegisterAttnCtrl as RegisterAttnCtrl
+
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 model_path = "runwayml/stable-diffusion-v1-5"

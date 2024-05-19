@@ -46,7 +46,7 @@ To install the required packages, you can run the following command in your term
 pip install -r requirements.txt
 ```
 
-## Usage
+## Quickstart
 
 ```raw
 python ./run.py \
@@ -71,3 +71,84 @@ and sample with
 python run.py -p "A squirrel and a cherry" -s 2436247 -i 5 -t 1 50
 ```
 
+You can also dig into the models and adjust the parameters you want
+```python
+import torch
+from diffusers import DDIMScheduler
+from torchvision.utils import save_image
+from AttentiveEraser.tools import *
+from AttentiveEraser import Pipeline, AttnCtrl, RegisterAttnCtrl
+
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+model_path = "runwayml/stable-diffusion-v1-5"
+scheduler = DDIMScheduler(
+    beta_start=0.00085,
+    beta_end=0.012,
+    beta_schedule="scaled_linear",
+    clip_sample=False,
+    set_alpha_to_one=False,
+)
+pipe = Pipeline.AttentiveEraserPipeline.from_pretrained(
+    model_path, scheduler=scheduler
+).to(device)
+NUM_DIFFUSION_STEPS = 50
+
+
+def QuickStart(
+    prompts: list,
+    initial_latent: torch.Tensor,
+    isSelfAttnReplace: bool = False,
+    SelfAttnReplaceSteps: list = [1, 50],
+    CrossAttnEditIndex: list = [],
+    CrossAttnEditWord: list = [],
+    CrossAttnEditSteps: list = [0, 0],
+    EmbedCtrlIndex: list = [],
+    isResetMask: bool = False,
+    cross_replace_steps: list = None,
+    isDisplay: bool = True,
+):
+    controller = AttnCtrl.AttentiveEraserAttentionControlEdit(
+        prompts,
+        NUM_DIFFUSION_STEPS,
+        self_replace_steps=SelfAttnReplaceSteps,
+        cross_replace_steps=cross_replace_steps,
+    )
+    RegisterAttnCtrl.AttentiveEraser_register_attention_control(
+        pipe,
+        controller,
+        CrossAttnEditIndex=CrossAttnEditIndex,
+        CrossAttnEditWord=CrossAttnEditWord,
+        isSelfAttnReplace=isSelfAttnReplace,
+        CrossAttnEditSteps=CrossAttnEditSteps,
+        isResetMask=isResetMask,
+    )
+    results = pipe(
+        prompts,
+        latents=initial_latent,
+        guidance_scale=7.5,
+        EmbedCtrlIndex=EmbedCtrlIndex,
+    )
+    if isDisplay:
+        display_tensors_as_images(results[0], results[1])
+
+    return results, controller
+
+
+GlobalSeed(2436247)
+prompt = "A squirrel and a cherry"
+initial_latent = torch.randn([1, 4, 64, 64], device=device)
+prompts = [prompt, prompt]
+initial_latent = initial_latent.expand(len(prompts), -1, -1, -1)
+
+results, ctrler = QuickStart(
+    prompts=prompts,
+    initial_latent=initial_latent,
+    isSelfAttnReplace=False,
+    SelfAttnReplaceSteps=[1, 50],
+    CrossAttnEditIndex=[4, 5],
+    CrossAttnEditWord=[1, 2, 3, 4, 5],
+    CrossAttnEditSteps=[1, 20],
+    EmbedCtrlIndex=[],
+    isResetMask=False,
+)
+```
