@@ -16,8 +16,8 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with a ball</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and Lemon Slice</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and <del>Lemon Slice</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and lemon slice</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and <del>lemon slice</del></td>
   </tr>
 
   <tr>
@@ -30,8 +30,8 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and a cherry</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and <del>a cherry</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on Green</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and <del>Cherries</del> on Green</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on a verdant backdrop</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on <del>a verdant backdrop</del></td>
   </tr>
 
 </table>
