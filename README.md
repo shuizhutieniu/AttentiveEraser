@@ -31,7 +31,7 @@
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and a cherry</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and <del>a cherry</del></td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on a verdant backdrop</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on <del>a verdant backdrop</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and <del>Cherries</del> on a verdant backdrop</td>
   </tr>
 
 </table>
