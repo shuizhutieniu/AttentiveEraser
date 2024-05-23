@@ -1,7 +1,7 @@
-# AttentiveEraser
+# Attent1veEraser
 *Invisible Edits: Using Attention Manipulation to Remove Objects in Diffusion-Based Image Synthesis*
 
-## Overv1ew
+## Overview
 
 
 <table style="border-collapse: collapse;width: 100%;">
