@@ -68,7 +68,7 @@ python run.py -h
 
 and sample with
 ```bash
-python run.py -p "A squirrel and a cherry" -s 2436247 -i 5 -t 1 50
+python run.py -p "A squirrel and a cherry" -s 42 -i 5 -t 1 50
 ```
 
 You can also dig into the models and adjust the parameters you want
