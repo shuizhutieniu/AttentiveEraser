@@ -14,24 +14,24 @@
   </tr>
 
   <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel plays with a ball</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel plays with <del>a ball</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with a ball</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with <del>a ball</del></td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and lemon slice</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and <del>lemon slice</del></td>
   </tr>
 
   <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
     <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
     <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
   </tr>
 
   <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and a cherry</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and <del>a cherry</del></td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and cherries on a verdant backdrop</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and <del>cherries</del> on a verdant backdrop</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and a cherry</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and <del>a cherry</del></td>
   </tr>
 
 </table>
