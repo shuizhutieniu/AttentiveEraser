@@ -14,10 +14,10 @@
   </tr>
 
   <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with a ball</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and lemon slice</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A photo of an elephant and <del>lemon slice</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel plays with a ball</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel plays with <del>a ball</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and lemon slice</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and <del>lemon slice</del></td>
   </tr>
 
   <tr>
@@ -28,10 +28,10 @@
   </tr>
 
   <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and a cherry</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">A squirrel and <del>a cherry</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and Cherries on a verdant backdrop</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;">Bananas and <del>Cherries</del> on a verdant backdrop</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and a cherry</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and <del>a cherry</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and cherries on a verdant backdrop</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and <del>cherries</del> on a verdant backdrop</td>
   </tr>
 
 </table>
