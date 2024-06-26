@@ -134,7 +134,7 @@ def QuickStart(
     return results, controller
 
 
-GlobalSeed(2436247)
+GlobalSeed(42)
 prompt = "A squirrel and a cherry"
 initial_latent = torch.randn([1, 4, 64, 64], device=device)
 prompts = [prompt, prompt]
@@ -174,4 +174,33 @@ The `forward` method is called in each attention layer of the diffusion model du
 
 ![alt text](https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/output.png)
 
+## Gradient Descent
 
+
+<table style="border-collapse: collapse;width: 100%;">
+
+  <tr>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+
+  <tr>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+  </tr>
+
+  <tr>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+
+  <tr>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+  </tr>
+
+</table>
