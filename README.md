@@ -36,6 +36,47 @@
 
 </table>
 
+## Attention Edits
+Inspired by [p2p](https://github.com/google/prompt-to-prompt), we perform our main logic by implementing `AttentiveEraserAttentionControlEdit` inherits from the abstract class `AttentionControl`
+
+The `forward` method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words.
+
+
+自制一个损失函数
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1735.jpg" alt="name" style="width: 100%; height: auto;">
+
+
+## Gradient Descent
+
+
+<table style="border-collapse: collapse;width: 100%;">
+
+  <tr>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+
+  <tr>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+  </tr>
+
+  <tr>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
+    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
+  </tr>
+
+  <tr>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+  </tr>
+
+</table>
+
 
 ## Requirements
 
@@ -46,7 +87,22 @@ To install the required packages, you can run the following command in your term
 pip install -r requirements.txt
 ```
 
-## Quickstart
+
+## 🛠️Quickstart
+
+
+### WebUI
+把8关掉
+....bystreamlt
+
+```bash
+streamlit run AttentiveEraser-WebUI.py
+```
+
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/20240628124742.png" alt="name" style="width: 100%; height: auto;">
+
+
+### CommandLine
 
 ```raw
 python ./run.py \
@@ -66,10 +122,12 @@ Or you can run the following command to understand the available command-line op
 python run.py -h
 ```
 
+
 and sample with
 ```bash
 python run.py -p "A squirrel and a cherry" -s 42 -i 5 -t 1 50
 ```
+
 
 You can also dig into the models and adjust the parameters you want
 ```python
@@ -154,53 +212,3 @@ results, ctrler = QuickStart(
 ```
 
 
-## Attention Edits
-Inspired by [p2p](https://github.com/google/prompt-to-prompt), we perform our main logic by implementing `AttentiveEraserAttentionControlEdit` inherits from the abstract class `AttentionControl`
-
-The `forward` method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words.
-
-
-
-
-<table style="border-collapse: collapse;width: 100%;">
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/cirk.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-
-</table>
-
-
-![alt text](https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/output.png)
-
-## Gradient Descent
-
-
-<table style="border-collapse: collapse;width: 100%;">
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-
-</table>
