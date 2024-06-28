@@ -98,7 +98,7 @@ with col1:
         with st.container(border=True):
             co1, co2, co3, co4 = st.columns(4)
             with co1:
-                st.checkbox(label="SGD", value=True)
+                st.checkbox(label="use GD", value=True)
             with co2:
                 st.checkbox(label="LowResource", value=False)
             with co3:
@@ -108,7 +108,7 @@ with col1:
 
             cco1, cco2, cco3, cco4 = st.columns(4)
             with cco1:
-                st.checkbox(label="8x8", value=True)
+                st.checkbox(label="8x8", value=False)
             with cco2:
                 st.checkbox(label="16x16", value=True)
             with cco3:
