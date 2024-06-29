@@ -2,9 +2,9 @@
 <table style="border-collapse: collapse;width: 100%;">
 
   <tr>
-  <td style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">W.O. GD</td>
-  <td style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">GD</td>
+  <th style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">Raw</th>
+  <th style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">W.O. GD</th>
+  <th style="border: 10px solid white; padding: 0px; text-align: center;width: 25%">GD</th>
   </tr>
 
 

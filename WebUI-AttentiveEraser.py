@@ -1,11 +1,35 @@
 import streamlit as st
-from PIL import Image
-import os
-import json
 import pandas as pd
-import numpy as np
 
 st.set_page_config(page_title="Homepage", layout="wide", page_icon="💕")
+
+losses = [
+    0.8060,
+    0.6066,
+    0.1067,
+    0.0182,
+    0.0101,
+    0.0115,
+    0.0209,
+    0.0275,
+    0.0293,
+    0.0292,
+    0.0299,
+    0.0335,
+    0.0498,
+    0.0466,
+    0.0509,
+    0.0348,
+    0.0320,
+    0.0051,
+    0.0079,
+    0.0025,
+    0.0104,
+    0.0025,
+    0.0062,
+    0.0034,
+    0.0088,
+]
 
 
 def show_markdown(filename: str):
@@ -19,31 +43,6 @@ st.title("AttentiveEraser-WebUI")
 
 
 col1, col2 = st.columns(2)
-
-
-def display_values():
-    # 获取滑动条的值
-    range1 = st.session_state.range1
-    range2 = st.session_state.range2
-
-    # 显示获取的值
-    st.write(f"滑动条1的范围: {range1}")
-    st.write(f"滑动条2的范围: {range2}")
-    st.write("Loss:0.0156 画一个折线图")
-
-
-# propmt
-# seed
-# wordIndex
-
-# CrossAttnEditStep
-# useMaskRange
-
-# isReplaceEmbed + range
-# isReplaceSelfAttn + range
-# isLowResource
-# isSGD
-# 8 16 32 64
 
 
 with col1:
@@ -62,7 +61,7 @@ with col1:
             slider_left_column, slider_right_column = st.columns(2)
             with slider_left_column:
                 st.slider(
-                    "CrossAttnEditStep(1-50)",
+                    "Cross-Attention Map Edit Steps(1-50)",
                     min_value=1,
                     max_value=50,
                     value=(4, 14),
@@ -70,7 +69,7 @@ with col1:
                 )
             with slider_right_column:
                 st.slider(
-                    "useMaskRange(1-77, 1-7word and trailling)",
+                    "Words that use masks(1-77)",
                     min_value=1,
                     max_value=77,
                     value=(1, 7),
@@ -80,7 +79,7 @@ with col1:
             otherslider_left_column, otherslider_right_column = st.columns(2)
             with otherslider_left_column:
                 st.slider(
-                    "ReplaceEmbedding(1-50)",
+                    "Replace Embedding Steps(1-50)",
                     min_value=1,
                     max_value=50,
                     value=(1, 40),
@@ -88,7 +87,7 @@ with col1:
                 )
             with otherslider_right_column:
                 st.slider(
-                    "ReplaceSelfAttn(1-50)",
+                    "Replace Self-Attention Map Steps(1-50)",
                     min_value=1,
                     max_value=50,
                     value=(1, 10),
@@ -98,35 +97,41 @@ with col1:
         with st.container(border=True):
             co1, co2, co3, co4 = st.columns(4)
             with co1:
-                st.checkbox(label="use GD", value=True)
+                st.checkbox(label="Use Gradient Descent", value=True)
             with co2:
-                st.checkbox(label="LowResource", value=False)
+                st.checkbox(label="Low Resource Mode", value=False)
             with co3:
-                st.checkbox(label="ReplaceEmbed", value=False)
+                st.checkbox(label="Replace WordEmbedding", value=False)
             with co4:
-                st.checkbox(label="ReplaceSelfAttn", value=True)
+                st.checkbox(label="Replace Self-Attention Map", value=True)
 
             cco1, cco2, cco3, cco4 = st.columns(4)
             with cco1:
-                st.checkbox(label="8x8", value=False)
+                st.checkbox(
+                    label="extract from :red-background[[8x8]] AttnMap", value=False
+                )
             with cco2:
-                st.checkbox(label="16x16", value=True)
+                st.checkbox(
+                    label="extract from :red-background[[16x16]] AttnMap", value=True
+                )
             with cco3:
-                st.checkbox(label="32x32", value=True)
+                st.checkbox(
+                    label="extract from :red-background[[32x32]] AttnMap", value=True
+                )
             with cco4:
-                st.checkbox(label="64x64", value=False)
+                st.checkbox(
+                    label="extract from :red-background[[64x64]] AttnMap", value=False
+                )
 
         st.button("Generate Image", type="primary")
 
 with col2:
     with st.container(border=True):
         show_markdown("test")
-        # 创建一个简单的数据集
-        data = pd.DataFrame(
-            {
-                "日期": pd.date_range(start="1/1/2020", periods=100),
-                "值": np.random.randn(100).cumsum(),
-            }
-        )
+        data = pd.DataFrame({"Iteration": range(len(losses)), "Loss": losses})
         # 绘制折线图
-        st.line_chart(data.set_index("日期"))
+        st.line_chart(
+            data.set_index("Iteration"),
+            x_label="Iteration",
+            y_label="Loss",
+        )

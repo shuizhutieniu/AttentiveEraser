@@ -16,8 +16,8 @@
   <tr>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with a ball</td>
   <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and lemon slice</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and <del>lemon slice</del></td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and lemon</td>
+  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and <del>lemon</del></td>
   </tr>
 
   <tr>
@@ -43,7 +43,7 @@ The `forward` method is called in each attention layer of the diffusion model du
 
 
 自制一个损失函数
-<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1735.jpg" alt="name" style="width: 100%; height: auto;">
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name" style="width: 100%; height: auto;">
 
 
 ## Gradient Descent
@@ -92,14 +92,13 @@ pip install -r requirements.txt
 
 
 ### WebUI
-把8关掉
 ....bystreamlt
 
 ```bash
 streamlit run AttentiveEraser-WebUI.py
 ```
 
-<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/20240628124742.png" alt="name" style="width: 100%; height: auto;">
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-06-29%20142833.png" alt="name" style="width: 100%; height: auto;">
 
 
 ### CommandLine
@@ -107,7 +106,7 @@ streamlit run AttentiveEraser-WebUI.py
 ```raw
 python ./run.py \
        -p     "A squirrel and a cherry"  # The text prompt describing the image, e.g., "A squirrel and a cherry"
-       -s     2436247                    # The seed number for reproducibility of results, e.g., 42.
+       -s     42                         # The seed number for reproducibility of results, e.g., 42.
        -i     5                          # The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt.
        -t     1 20                       # The range of diffusion model layers to apply the modifications, e.g., 1 20 for layers 1 to 20.
        -w     1,2,3,4,5                  # List of word indices in the attention map to be modified, default is the target word index.
