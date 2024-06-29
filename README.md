@@ -90,7 +90,7 @@ pip install -r requirements.txt
 
 ## 🛠️Quickstart
 
-
+[转pdf](https://blog.csdn.net/qq_34243930/article/details/107815936)
 ### WebUI
 ....bystreamlt
 
@@ -133,11 +133,11 @@ python run.py -p "A squirrel and a cherry" -s 42 -i 5 -t 1 50
 
 
 You can also dig into the models and adjust the parameters you want
+
 ```python
 from AttentiveEraser.tools import *
 from AttentiveEraser import Pipeline, AttnCtrl, RegisterAttnCtrl
 
-device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 model_path = "runwayml/stable-diffusion-v1-5"
 scheduler = DDIMScheduler(
     beta_start=0.00085,
@@ -150,8 +150,9 @@ pipe = Pipeline.AttentiveEraserPipeline.from_pretrained(
     model_path, scheduler=scheduler
 ).to(device)
 NUM_DIFFUSION_STEPS = 50
+```
 
-
+```python
 def QuickStart(
     prompts: list,
     initial_latent: torch.Tensor,
@@ -190,8 +191,9 @@ def QuickStart(
         display_tensors_as_images(results[0], results[1])
 
     return results, controller
+```
 
-
+```python
 GlobalSeed(42)
 prompt = "A squirrel and a cherry"
 initial_latent = torch.randn([1, 4, 64, 64], device=device)
