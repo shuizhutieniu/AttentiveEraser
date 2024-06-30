@@ -1,15 +1,16 @@
-<!DOCTYPE html><html><head>
-      <title>README</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:///c:\Users\16642\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
-      <!-- <link rel="stylesheet" href="style.css"> -->
-      
-      <style>
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>README</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet"
+        href="file:///c:\Users\16642\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 
+    <style>
         code[class*=language-],
         pre[class*=language-] {
             color: #333;
@@ -34,14 +35,14 @@
             padding: .8em;
             overflow: auto;
             border-radius: 3px;
-            background: #f5f5f5
+            background: #f6f8fa
         }
 
         :not(pre)>code[class*=language-] {
             padding: .1em;
             border-radius: .3em;
             white-space: normal;
-            background: #f5f5f5
+            background: #f6f8fa
         }
 
         .token.blockquote,
@@ -846,157 +847,213 @@
         html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
             display: none
         }
+    </style>
 
 
 
 
 
+    <!-- The content below will be included at the end of the <head> element. -->
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // your code here
+        });
+    </script>
+</head>
+
+<body for="html-export">
 
 
+    <div class="crossnote markdown-preview  ">
 
-
-
-      </style>
-
-
-
-
-
-
-      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    // your code here
-  });
-</script></head><body for="html-export">
-    
-    
-      <div class="crossnote markdown-preview  ">
-      
-<h1 id="attentiveeraser">AttentiveEraser </h1>
-<p><em>Invisible Edits: Using Attention Manipulation to Remove Objects in Diffusion-Based Image Synthesis</em></p>
-<h2 id="overview">Overview </h2>
-<table style="border-collapse: collapse;width: 100%;">
-  <tbody><tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with a ball</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a squirrel plays with <del>a ball</del></td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and lemon</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an elephant and <del>lemon</del></td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and cherries on a verdant backdrop</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and <del>cherries</del> on a verdant backdrop</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and a cherry</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and <del>a cherry</del></td>
-  </tr>
-</tbody></table>
-<h2 id="attention-edits">Attention Edits </h2>
-<p>Inspired by <a href="https://github.com/google/prompt-to-prompt">p2p</a>, we perform our main logic by implementing <code>AttentiveEraserAttentionControlEdit</code> inherits from the abstract class <code>AttentionControl</code></p>
-<p>The <code>forward</code> method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words.</p>
-<p>自制一个损失函数<br>
-<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name" style="width: 100%; height: auto;"></p>
-<h2 id="gradient-descent">Gradient Descent </h2>
-<table style="border-collapse: collapse;width: 100%;">
-  <tbody><tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-</tbody></table>
-<h2 id="requirements">Requirements </h2>
-<p>The codebase is tested under <strong>NVIDIA Tesla T4</strong> with the python library <strong>pytorch-2.2.1+cu121</strong> and <strong>diffusers-0.16.1</strong> using pre-trained models through <a href="https://huggingface.co/runwayml/stable-diffusion-v1-5">runwayml/stable-diffusion-v1-5</a>. We strongly recommend using a specific version of Diffusers as it is continuously evolving. For PyTorch, you could probably use other version under 2.x.x.</p>
-<p>To install the required packages, you can run the following command in your terminal:</p>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> <span class="token parameter variable">-r</span> requirements.txt
-</code></pre><h2 id="️quickstart">🛠️Quickstart </h2>
-<p><a href="https://blog.csdn.net/qq_34243930/article/details/107815936">转pdf</a></p>
-<h3 id="webui">WebUI </h3>
-<p>....bystreamlt</p>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>streamlit run AttentiveEraser-WebUI.py
-</code></pre><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-06-29%20142833.png" alt="name" style="width: 100%; height: auto;">
-<h3 id="commandline">CommandLine </h3>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Example Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-p</code></td>
-<td>"A squirrel and a cherry"</td>
-<td>The text prompt describing the image, e.g., "A squirrel and a cherry"</td>
-</tr>
-<tr>
-<td><code>-s</code></td>
-<td>42</td>
-<td>The seed number for reproducibility of results, e.g., 42</td>
-</tr>
-<tr>
-<td><code>-i</code></td>
-<td>5</td>
-<td>The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt</td>
-</tr>
-<tr>
-<td><code>-t</code></td>
-<td>1 20</td>
-<td>The range of diffusion model layers to apply the modifications, e.g., 1 to 20</td>
-</tr>
-<tr>
-<td><code>-w</code></td>
-<td>1,2,3,4,5</td>
-<td>List of word indices in the attention map to be modified, default is the target word index</td>
-</tr>
-<tr>
-<td><code>-r</code></td>
-<td>False</td>
-<td>Flag to replace the self-attention maps, default is False</td>
-</tr>
-<tr>
-<td><code>-sa</code></td>
-<td>[1, 50]</td>
-<td>The layers where self-attention maps are replaced, e.g., 1 20. Effective only if <code>-r</code> is specified</td>
-</tr>
-<tr>
-<td><code>-em</code></td>
-<td>[5]</td>
-<td>Indices of word embeddings to replace, default is empty, e.g., [5] to replace "cherry"</td>
-</tr>
-</tbody>
-</table>
-<p>Or you can run the following command to understand the available command-line options for the script:</p>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python run.py <span class="token parameter variable">-h</span>
-</code></pre><p>and sample with</p>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python run.py <span class="token parameter variable">-p</span> <span class="token string">"A squirrel and a cherry"</span> <span class="token parameter variable">-s</span> <span class="token number">42</span> <span class="token parameter variable">-i</span> <span class="token number">5</span> <span class="token parameter variable">-t</span> <span class="token number">1</span> <span class="token number">50</span>
-</code></pre><p>You can also dig into the models and adjust the parameters you want</p>
-<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> AttentiveEraser<span class="token punctuation">.</span>tools <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
+        <h1 id="attentiveeraser">AttentiveEraser </h1>
+        <p><em>Invisible Edits: Using Attention Manipulation to Remove Objects in Diffusion-Based Image Synthesis</em>
+        </p>
+        <h2 id="overview">Overview </h2>
+        <table style="border-collapse: collapse;width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436249A%20squirrel%20and%20a%20ball_edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a
+                        squirrel plays with a ball</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of a
+                        squirrel plays with <del>a ball</del></td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an
+                        elephant and lemon</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A photo of an
+                        elephant and <del>lemon</del></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20banana%20and%20a%20cherry_edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and
+                        cherries on a verdant backdrop</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Bananas and
+                        <del>cherries</del> on a verdant backdrop
+                    </td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and a
+                        cherry</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">A squirrel and
+                        <del>a cherry</del>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="attention-edits">Attention Edits </h2>
+        <p>Inspired by <a href="https://github.com/google/prompt-to-prompt">p2p</a>, we perform our main logic by
+            implementing <code>AttentiveEraserAttentionControlEdit</code> inherits from the abstract class
+            <code>AttentionControl</code>
+        </p>
+        <p>The <code>forward</code> method is called in each attention layer of the diffusion model during the image
+            generation, and we use it to extract the attention map of the target word, then create a mask. This mask,
+            combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers
+            and words.</p>
+        <p>自制一个损失函数<br>
+            <img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name"
+                style="width: 100%; height: auto;">
+        </p>
+        <h2 id="gradient-descent">Gradient Descent </h2>
+        <table style="border-collapse: collapse;width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img
+                            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg"
+                            alt="name" style="width: 100%; height: auto;"></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
+                    <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="requirements">Requirements </h2>
+        <p>The codebase is tested under <strong>NVIDIA Tesla T4</strong> with the python library
+            <strong>pytorch-2.2.1+cu121</strong> and <strong>diffusers-0.16.1</strong> using pre-trained models through
+            <a href="https://huggingface.co/runwayml/stable-diffusion-v1-5">runwayml/stable-diffusion-v1-5</a>. We
+            strongly recommend using a specific version of Diffusers as it is continuously evolving. For PyTorch, you
+            could probably use other version under 2.x.x.
+        </p>
+        <p>To install the required packages, you can run the following command in your terminal:</p>
+        <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> <span class="token parameter variable">-r</span> requirements.txt
+</code></pre>
+        <h2 id="️quickstart">🛠️Quickstart </h2>
+        <p><a href="https://blog.csdn.net/qq_34243930/article/details/107815936">转pdf</a></p>
+        <h3 id="webui">WebUI </h3>
+        <p>....bystreamlt</p>
+        <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>streamlit run AttentiveEraser-WebUI.py
+</code></pre><img
+            src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-06-29%20142833.png"
+            alt="name" style="width: 100%; height: auto;">
+        <h3 id="commandline">CommandLine </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Example Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>-p</code></td>
+                    <td>"A squirrel and a cherry"</td>
+                    <td>The text prompt describing the image, e.g., "A squirrel and a cherry"</td>
+                </tr>
+                <tr>
+                    <td><code>-s</code></td>
+                    <td>42</td>
+                    <td>The seed number for reproducibility of results, e.g., 42</td>
+                </tr>
+                <tr>
+                    <td><code>-i</code></td>
+                    <td>5</td>
+                    <td>The position index of the target word to remove from the image, e.g., 5 for "cherry" in the
+                        prompt</td>
+                </tr>
+                <tr>
+                    <td><code>-t</code></td>
+                    <td>1 20</td>
+                    <td>The range of diffusion model layers to apply the modifications, e.g., 1 to 20</td>
+                </tr>
+                <tr>
+                    <td><code>-w</code></td>
+                    <td>1,2,3,4,5</td>
+                    <td>List of word indices in the attention map to be modified, default is the target word index</td>
+                </tr>
+                <tr>
+                    <td><code>-r</code></td>
+                    <td>False</td>
+                    <td>Flag to replace the self-attention maps, default is False</td>
+                </tr>
+                <tr>
+                    <td><code>-sa</code></td>
+                    <td>[1, 50]</td>
+                    <td>The layers where self-attention maps are replaced, e.g., 1 20. Effective only if <code>-r</code>
+                        is specified</td>
+                </tr>
+                <tr>
+                    <td><code>-em</code></td>
+                    <td>[5]</td>
+                    <td>Indices of word embeddings to replace, default is empty, e.g., [5] to replace "cherry"</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Or you can run the following command to understand the available command-line options for the script:</p>
+        <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python run.py <span class="token parameter variable">-h</span>
+</code></pre>
+        <p>and sample with</p>
+        <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python run.py <span class="token parameter variable">-p</span> <span class="token string">"A squirrel and a cherry"</span> <span class="token parameter variable">-s</span> <span class="token number">42</span> <span class="token parameter variable">-i</span> <span class="token number">5</span> <span class="token parameter variable">-t</span> <span class="token number">1</span> <span class="token number">50</span>
+</code></pre>
+        <p>You can also dig into the models and adjust the parameters you want</p>
+        <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> AttentiveEraser<span class="token punctuation">.</span>tools <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
 <span class="token keyword keyword-from">from</span> AttentiveEraser <span class="token keyword keyword-import">import</span> Pipeline<span class="token punctuation">,</span> AttnCtrl<span class="token punctuation">,</span> RegisterAttnCtrl
 
 model_path <span class="token operator">=</span> <span class="token string">"runwayml/stable-diffusion-v1-5"</span>
@@ -1011,7 +1068,8 @@ pipe <span class="token operator">=</span> Pipeline<span class="token punctuatio
     model_path<span class="token punctuation">,</span> scheduler<span class="token operator">=</span>scheduler
 <span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
 NUM_DIFFUSION_STEPS <span class="token operator">=</span> <span class="token number">50</span>
-</code></pre><pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">QuickStart</span><span class="token punctuation">(</span>
+</code></pre>
+        <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">QuickStart</span><span class="token punctuation">(</span>
     prompts<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">,</span>
     initial_latent<span class="token punctuation">:</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">,</span>
     isSelfAttnReplace<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
@@ -1049,7 +1107,8 @@ NUM_DIFFUSION_STEPS <span class="token operator">=</span> <span class="token num
         display_tensors_as_images<span class="token punctuation">(</span>results<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> results<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
     <span class="token keyword keyword-return">return</span> results<span class="token punctuation">,</span> controller
-</code></pre><pre data-role="codeBlock" data-info="python" class="language-python python"><code>GlobalSeed<span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span>
+</code></pre>
+        <pre data-role="codeBlock" data-info="python" class="language-python python"><code>GlobalSeed<span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span>
 prompt <span class="token operator">=</span> <span class="token string">"A squirrel and a cherry"</span>
 initial_latent <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">,</span> device<span class="token operator">=</span>device<span class="token punctuation">)</span>
 prompts <span class="token operator">=</span> <span class="token punctuation">[</span>prompt<span class="token punctuation">,</span> prompt<span class="token punctuation">]</span>
@@ -1067,14 +1126,16 @@ results<span class="token punctuation">,</span> ctrler <span class="token operat
     isResetMask<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span>
 </code></pre>
-      </div>
-      
-      
-    
-    
-    
-    
-    
-    
-  
-    </body></html>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

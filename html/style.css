@@ -22,14 +22,14 @@ pre[class*=language-] {
     padding: .8em;
     overflow: auto;
     border-radius: 3px;
-    background: #f5f5f5
+    background: #f6f8fa
 }
 
 :not(pre)>code[class*=language-] {
     padding: .1em;
     border-radius: .3em;
     white-space: normal;
-    background: #f5f5f5
+    background: #f6f8fa
 }
 
 .token.blockquote,
