@@ -90,7 +90,6 @@ pip install -r requirements.txt
 
 ## 🛠️Quickstart
 
-[转pdf](https://blog.csdn.net/qq_34243930/article/details/107815936)
 ### WebUI
 ....bystreamlt
 
