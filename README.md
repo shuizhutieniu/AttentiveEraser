@@ -42,7 +42,41 @@ Inspired by [p2p](https://github.com/google/prompt-to-prompt), we perform our ma
 The `forward` method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words.
 
 
-自制一个损失函数
+The Structural Similarity Index (SSIM) is defined as:
+\[
+\text{SSIM}(x, y) = \frac{(2\mu_x \mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + c_1)(\sigma_x^2 + \sigma_y^2 + c_2)}
+\]
+
+Key components:
+- \( x \) and \( y \) represent two windows of images being compared.
+- \( \mu_x \) and \( \mu_y \) are the mean values of their respective image windows.
+- \( \sigma_x^2 \) and \( \sigma_y^2 \) denote the variances of these windows.
+- \( \sigma_{xy} \) represents the covariance between the windows.
+- \( c_1 \) and \( c_2 \) are small constants added to stabilize the division with very small denominators, typically \( c_1 = (k_1 M)^2 \) and \( c_2 = (k_2 M)^2 \), where \( M \) is the dynamic range of the pixel values, and \( k_1 = 0.01 \) and \( k_2 = 0.03 \) are commonly used values.
+
+
+\[
+\mathcal{L}_{SSIM} = 1 - \frac{1}{N} \sum_{i=1}^{N} \text{SSIM}(x_i, y_i)
+\]
+
+待翻译：这里 \( N \) 是批量大小或总的评估区域数，\( x_i \) 和 \( y_i \) 是原始图像和重建图像中的相应区域。
+
+
+For the unedited regions, calculate the cosine similarity between the original and edited attention maps and use the cosine distance (1 minus the cosine similarity) as the loss. The specific formula is:
+
+\[
+\mathcal{L}_{attention} = \frac{1}{|U|} \sum_{i \in U} \left(1 - \frac{A_{original, i} \cdot A_{edited, i}}{\|A_{original, i}\| \|A_{edited, i}\|}\right)
+\]
+
+Here, \( U \) indicates unedited areas, \( A_{original, i} \) and \( A_{edited, i} \) are vectors representing the attention values at position \( i \) in the original and edited maps, respectively. The dot denotes a vector dot product, and \(\|\cdot\|\) represents the Euclidean norm of a vector.
+
+
+
+
+\[
+\mathcal{L} = \alpha \mathcal{L}_{attention} + \beta \mathcal{L}_{SSIM}
+\]
+
 <img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name" style="width: 100%; height: auto;">
 
 
@@ -91,8 +125,9 @@ pip install -r requirements.txt
 ## 🛠️Quickstart
 
 ### WebUI
-....bystreamlt
+AttentiveEraser includes a user-friendly web interface built with Streamlit, which allows for an interactive experience directly from your browser.
 
+To launch the Web UI, navigate to the project directory in your terminal and run the following command:
 ```bash
 streamlit run AttentiveEraser-WebUI.py
 ```
@@ -102,18 +137,53 @@ streamlit run AttentiveEraser-WebUI.py
 
 ### CommandLine
 
-| Option | Example Value             | Description                                                                                        |
-| ------ | ------------------------- | -------------------------------------------------------------------------------------------------- |
-| `-p`   | "A squirrel and a cherry" | The text prompt describing the image, e.g., "A squirrel and a cherry"                              |
-| `-s`   | 42                        | The seed number for reproducibility of results, e.g., 42                                           |
-| `-i`   | 5                         | The position index of the target word to remove from the image, e.g., 5 for "cherry" in the prompt |
-| `-t`   | 1 20                      | The range of diffusion model layers to apply the modifications, e.g., 1 to 20                      |
-| `-w`   | 1,2,3,4,5                 | List of word indices in the attention map to be modified, default is the target word index         |
-| `-r`   | False                     | Flag to replace the self-attention maps, default is False                                          |
-| `-sa`  | [1, 50]                   | The layers where self-attention maps are replaced, e.g., 1 20. Effective only if `-r` is specified |
-| `-em`  | [5]                       | Indices of word embeddings to replace, default is empty, e.g., [5] to replace "cherry"             |
-
-
+<table>
+    <tr>
+        <th>Option</th>
+        <th>Example Value</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>-p</code></td>
+        <td><code>"A squirrel and a cherry"</code></td>
+        <td>The text prompt describing the image, e.g., <code>"A squirrel and a cherry"</code></td>
+    </tr>
+    <tr>
+        <td><code>-s</code></td>
+        <td>42</td>
+        <td>The seed number for reproducibility of results, e.g., 42</td>
+    </tr>
+    <tr>
+        <td><code>-i</code></td>
+        <td>5</td>
+        <td>The position index of the target word to remove from the image, e.g., 5 for <code>"cherry"</code> in the prompt</td>
+    </tr>
+    <tr>
+        <td><code>-t</code></td>
+        <td>1 20</td>
+        <td>The range of diffusion model layers to apply the modifications, e.g., 1 to 20</td>
+    </tr>
+    <tr>
+        <td><code>-w</code></td>
+        <td>1, 2, 3, 4, 5</td>
+        <td>List of word indices in the attention map to be modified, default is the target word index</td>
+    </tr>
+    <tr>
+        <td><code>-r</code></td>
+        <td>False</td>
+        <td>Flag to replace the self-attention maps, default is False</td>
+    </tr>
+    <tr>
+        <td><code>-sa</code></td>
+        <td>[1, 50]</td>
+        <td>The layers where self-attention maps are replaced, e.g., 1 20. Effective only if <code>-r</code> is specified</td>
+    </tr>
+    <tr>
+        <td><code>-em</code></td>
+        <td>[5]</td>
+        <td>Indices of word embeddings to replace, default is empty, e.g., [5] to replace <code>"cherry"</code></td>
+    </tr>
+</table>
 
 
 
@@ -211,5 +281,4 @@ results, ctrler = QuickStart(
     isResetMask=False,
 )
 ```
-
 
