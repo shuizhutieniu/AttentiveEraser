@@ -37,17 +37,23 @@
 </table>
 
 ## Attention Edits
+
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name" style="width: 100%; height: auto;">
+
+
 Inspired by [p2p](https://github.com/google/prompt-to-prompt), we perform our main logic by implementing `AttentiveEraserAttentionControlEdit` inherits from the abstract class `AttentionControl`
 
 The `forward` method is called in each attention layer of the diffusion model during the image generation, and we use it to extract the attention map of the target word, then create a mask. This mask, combined with a Gaussian blur technique, is applied to the attention maps corresponding to different layers and words.
 
+
+Further, by defining a loss function that combines the Structural Similarity Index (SSIM) for unedited areas and cosine similarity for the attention map, we then minimize this loss using gradient descent. This approach retains spatial details of the image more effectively than methods that do not employ gradient descent.
 
 The Structural Similarity Index (SSIM) is defined as:
 \[
 \text{SSIM}(x, y) = \frac{(2\mu_x \mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + c_1)(\sigma_x^2 + \sigma_y^2 + c_2)}
 \]
 
-Key components:
+
 - \( x \) and \( y \) represent two windows of images being compared.
 - \( \mu_x \) and \( \mu_y \) are the mean values of their respective image windows.
 - \( \sigma_x^2 \) and \( \sigma_y^2 \) denote the variances of these windows.
@@ -59,8 +65,8 @@ Key components:
 \mathcal{L}_{SSIM} = 1 - \frac{1}{N} \sum_{i=1}^{N} \text{SSIM}(x_i, y_i)
 \]
 
-待翻译：这里 \( N \) 是批量大小或总的评估区域数，\( x_i \) 和 \( y_i \) 是原始图像和重建图像中的相应区域。
-
+-  \( N \) stands for batch size
+-  \( x_i \) and \( y_i \) are the corresponding regions in the original image and the reconstructed image.
 
 For the unedited regions, calculate the cosine similarity between the original and edited attention maps and use the cosine distance (1 minus the cosine similarity) as the loss. The specific formula is:
 
@@ -71,45 +77,16 @@ For the unedited regions, calculate the cosine similarity between the original a
 Here, \( U \) indicates unedited areas, \( A_{original, i} \) and \( A_{edited, i} \) are vectors representing the attention values at position \( i \) in the original and edited maps, respectively. The dot denotes a vector dot product, and \(\|\cdot\|\) represents the Euclidean norm of a vector.
 
 
-
+The total loss function is defined as follows
 
 \[
 \mathcal{L} = \alpha \mathcal{L}_{attention} + \beta \mathcal{L}_{SSIM}
 \]
 
-<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/1949.jpg" alt="name" style="width: 100%; height: auto;">
 
 
-## Gradient Descent
 
-
-<table style="border-collapse: collapse;width: 100%;">
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/2436247A%20squirrel%20and%20a%20cherry_edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20squirrel%20and%20a%20cherry_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-
-  <tr>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/852_A%20elephant%20and%20a%20lemon_Edited.jpg" alt="name" style="width: 100%; height: auto;"></td>
-    <td style="border: 1px solid white; padding: 2px; text-align: center;"><img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/A%20photo%20of%20an%20elephant%20and%20Lemon%20Slice_Edited2.jpg" alt="name" style="width: 100%; height: auto;"></td>
-  </tr>
-
-  <tr>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">Raw</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V1</td>
-  <td style="border: 1px solid white; padding: 0px; text-align: center;width: 25%">V2</td>
-  </tr>
-
-</table>
+<img src="https://xiaolan-1317307543.cos.ap-guangzhou.myqcloud.com/07012105.jpg" alt="name" style="width: 100%; height: auto;">
 
 
 ## Requirements
