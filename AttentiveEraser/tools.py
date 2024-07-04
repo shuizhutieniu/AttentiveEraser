@@ -82,12 +82,6 @@ def GlobalSeed(seed: Optional[int] = None, workers: bool = False):
     os.environ["PL_SEED_WORKERS"] = f"{int(workers)}"
 
 
-import matplotlib.pyplot as plt
-
-
-import matplotlib.pyplot as plt
-
-
 def plot_tensors_heatmaps_advanced(
     *tensors,
     N=7,
@@ -98,7 +92,7 @@ def plot_tensors_heatmaps_advanced(
     saveToFile: bool = False,
     filePath: str = "heatmap",
     colormapValue: list = None,
-    title_fontsize: int = 12,  # 新添加的参数用于设置标题字体大小
+    title_fontsize: int = 12,
 ):
     if titles is None:
         titles = [f"{t.size(0)}x{t.size(1)}" for t in tensors]
@@ -128,7 +122,7 @@ def plot_tensors_heatmaps_advanced(
         ax.axis("off")
         if isColorbar:
             fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-        ax.set_title(str(title), fontsize=title_fontsize)  # 设置标题的字体大小
+        ax.set_title(str(title), fontsize=title_fontsize)
 
     extra_axes = len(axes.flatten()) - len(tensors)
     if extra_axes > 0:
